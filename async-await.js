@@ -10,24 +10,28 @@ const myPromise = new Promise((resolve, reject) => {
 })
 
 // ! ...NOW, it is a function (by wraping it in async function)
-const asyncFunctionMyPromise = () => myPromise
+function asyncFunctionMyPromise() {
+  return myPromise
+}
 
 await asyncFunctionMyPromise().catch(e => {
   console.error(`Error: ${e.message}\n${e.stack}`)
 })
 
-const asyncMyPromiseAsFunctionReturn = () => myPromise
+async function asyncMyPromiseAsFunctionReturn() {
+  return myPromise
+}
+
 await asyncMyPromiseAsFunctionReturn() // ?
 
-const tryCatchAsync =
-  fn =>
-    (...args) =>
-      fn(...args).catch(error => error)
+function tryCatchAsync(fn) {
+  return (...args) => fn(...args).catch(error => error)
+}
 
 tryCatchAsync(asyncFunctionMyPromise)() // ?
 
-const asyncNewPromiseAsFunctionReturn = s =>
-  new Promise((resolve, reject) => {
+function asyncNewPromiseAsFunctionReturn(s) {
+  return new Promise((resolve, reject) => {
     if (typeof s !== 'number') {
       reject(new Error('A number is required!'))
     }
@@ -35,27 +39,31 @@ const asyncNewPromiseAsFunctionReturn = s =>
       resolve(console.log('hello from asyncNewPromiseAsFunctionReturn()'))
     }, s * 1000)
   })
+}
 
 await asyncNewPromiseAsFunctionReturn(2)
 // c(1) // ?
 
-const inspect = input => `${input}`
+function inspect(input) {
+  return `${input}`
+}
 
-const asyncNewPromiseAsHighOrderFunction =
-  fn =>
-    (parameter = '') =>
-      new Promise((resolve, reject) => {
-        // eslint-disable-next-line babel/valid-typeof
-        // eslint-disable-next-line eqeqeq
-        if (parameter === 'stop') {
-          reject(new Error('You stopped the inspection!'))
-        }
-        setTimeout(() => {
-          resolve(fn(parameter))
-        }, 1500)
-      })
+function asyncNewPromiseAsHighOrderFunction(fn) {
+  return (parameter = '') =>
+    new Promise((resolve, reject) => {
+      // eslint-disable-next-line babel/valid-typeof
+      // eslint-disable-next-line eqeqeq
+      if (parameter === 'stop') {
+        reject(new Error('You stopped the inspection!'))
+      }
+      setTimeout(() => {
+        resolve(fn(parameter))
+      }, 1500)
+    })
+}
 
 const inspectAsync = asyncNewPromiseAsHighOrderFunction(inspect)
+
 inspectAsync('Hello').then(res => res) // ?
 inspectAsync('stop') // ?
 
