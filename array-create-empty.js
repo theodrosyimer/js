@@ -27,29 +27,37 @@ const arr = [...Array(100)] // ?
 Array.from({ length: 100 }) // ?
 
 /*
-a) Create and fill array x1,000,000
-b) Create and fill array x1,000
-check: [make array and fill x1000000 (version 1) - JavaScript benchmark at JSBench.me](https://jsbench.me/kmkw1uybkx/1)
+a) Create and fill array x1_000_000
+b) Create and fill array x1_000
+check: [make array and fill x1_000_000 (version 1) - JavaScript benchmark at JSBench.me](https://jsbench.me/kmkw1uybkx/1)
 the fastest first then second...
 */
-// a1)
-// b1)
+// a2) ≈75% slower
+// b5) ≈94% slower than b1
 const arr2 = [...Array(100)].map((_u, i) => i) // ?
 
-// a2) ≈1-5% slower
-// b2) ≈5-7.5% slower
+// a1) fastest and by far
+// b1) fastest and by far
+let array = Array(10000).fill(null)
+
+for (let i = 0; i < array.length; i++) {
+  array[i] = i
+}
+
+// a3) ≈77% slower
+// b3) ≈85.6% slower than b1
 Array(100)
   .fill(null)
   .map((_u, i) => i) // ?
 
-// a3) ≈55-60% slower
-// b4) ≈60% slower
+// a5) ≈94% slower
+// b4) ≈92% slower than b1
 const a = [...Array(100).keys()] // ?
 
-// a4) ≈65-70% slower
-// b5) ≈75% slower
+// a4) ≈91% slower
+// b6) ≈95% slower
 Array.from({ length: 100 }, (_u, i) => i) // ?
 
-// a5) returns --> RangeError: Maximum call stack size exceeded
-// b3) ≈13-14.5% slower
+// a6) returns --> RangeError: Maximum call stack size exceeded
+// b2) ≈85% slower than b1
 Array.apply(null, Array(100)).map((_u, i) => i) // ?
