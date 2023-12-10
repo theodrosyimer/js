@@ -2,7 +2,7 @@
  * @template T
  * @param {(...args: any) => Promise<T>} fn
  * @returns {Promise<[(Error | null), ( Awaited<T> | null)]>}
-*/
+ */
 export async function tryCatchAsync(fn) {
   try {
     const data = await fn()
