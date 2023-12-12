@@ -6,7 +6,8 @@
  * @param {number} n
  */
 function assertIsNumber(n) {
-  if (typeof n !== 'number') throw new Error(`Expected a number, received "${JSON.stringify(n)}"`)
+  if (typeof n !== 'number')
+    throw new Error(`Expected a number, received "${JSON.stringify(n)}"`)
 }
 
 /**
@@ -298,5 +299,25 @@ function toPositive(n) {
 }
 
 function invertSign(n) {
-  return -(n)
+  return -n
+}
+
+function median(numbers) {
+  let median = 0
+  let sortedArray = numbers.sort((a, b) => a > b)
+
+  console.log(sortedArray)
+
+  if (numbers.length % 2 === 0) {
+    // (middle-left + middle-right) / 2
+    median = (numbers[numbers.length / 2 - 1] + numbers[numbers.length / 2]) / 2
+  } else {
+    median = numbers[Math.trunc(numbers.length / 2)]
+  }
+
+  return median
+}
+
+function mean(numbers) {
+  return numbers.reduce((acc, n) => acc + n, 0) / numbers.length
 }
