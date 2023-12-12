@@ -42,14 +42,10 @@ function forLoopPush(size) {
   return array
 }
 
-// a2) ≈75% slower
-// b5) ≈94% slower than b1
 function spreadAndMap(size) {
   return [...Array(size)].map((_, i) => i)
-} // ?
+}
 
-// a1) fastest and by far
-// b1) fastest and by far
 function forLoopFill(size) {
   let array = []
   for (let i = 0; i < Array(size).fill(null); i++) {
@@ -58,28 +54,20 @@ function forLoopFill(size) {
   return array
 }
 
-// a3) ≈77% slower
-// b3) ≈85.6% slower than b1
 function fillAndMap(size) {
   return Array(size)
     .fill(0)
     .map((_, i) => i)
 }
 
-// a5) ≈94% slower
-// b4) ≈92% slower than b1
 function spreadAndKeys(size) {
   return [...Array(size).keys()]
 }
 
-// a4) ≈91% slower
-// b6) ≈95% slower
 function arrayFromAndMap(size) {
   return Array.from({ length: size }, (_, i) => i)
 }
 
-// a6) returns --> RangeError: Maximum call stack size exceeded
-// b2) ≈85% slower than b1
 function applyAndMap(size) {
   return Array.apply(null, Array(size)).map((_, i) => i)
 }
@@ -88,15 +76,15 @@ function applyAndMap(size) {
 
 *************************************************************************** */
 
-import { comparePerformance } from '../js-sandbox/performance-optimizations/time-it.js'
+import { bench } from '../js-sandbox/performance-optimizations/time-it.js'
 
-const iterationCount = [10, 100, 1000, 10_000, 100_000]
-const size = 2048
+const iterationCount = [10, 100, 1000, 10_000]
+const sizes = [10, 100, 1000, 10_000, 100_000]
 // const inputList = Array(size)
 //   .fill(null)
 //   .map((_, i) => i)
 
-comparePerformance([
+bench([
   {
     label: 'Comparing different ways to create an array',
     count: iterationCount,
@@ -109,6 +97,6 @@ comparePerformance([
       arrayFromAndMap,
       applyAndMap,
     ],
-    arguments: [size],
+    arguments: [sizes],
   },
 ])
