@@ -78,16 +78,16 @@ function applyAndMap(size) {
 
 import { bench } from '../js-sandbox/performance-optimizations/time-it.js'
 
-const iterationCount = [10, 100, 1000, 10_000]
-const sizes = [10, 100, 1000, 10_000, 100_000]
+const iterationCountList = [10 /* , 100, 1000 */]
+const sizeList = [10, 100, 1000, 10_000, 100_000]
 // const inputList = Array(size)
 //   .fill(null)
 //   .map((_, i) => i)
 
 bench([
   {
-    label: 'Comparing different ways to create an array',
-    count: iterationCount,
+    label: `Comparing different ways to create an array with ${sizeList[0]} items`,
+    count: iterationCountList,
     functions: [
       forLoopPush,
       forLoopFill,
@@ -97,6 +97,62 @@ bench([
       arrayFromAndMap,
       applyAndMap,
     ],
-    arguments: [sizes],
+    arguments: [sizeList[0]],
   },
+  // {
+  //   label: `Comparing different ways to create an array with ${sizeList[1]} items`,
+  //   count: iterationCountList,
+  //   functions: [
+  //     forLoopPush,
+  //     forLoopFill,
+  //     fillAndMap,
+  //     spreadAndMap,
+  //     spreadAndKeys,
+  //     arrayFromAndMap,
+  //     applyAndMap,
+  //   ],
+  //   arguments: [sizeList[1]],
+  // },
+  // {
+  //   label: `Comparing different ways to create an array with ${sizeList[2]} items`,
+  //   count: iterationCountList,
+  //   functions: [
+  //     forLoopPush,
+  //     forLoopFill,
+  //     fillAndMap,
+  //     spreadAndMap,
+  //     spreadAndKeys,
+  //     arrayFromAndMap,
+  //     applyAndMap,
+  //   ],
+  //   arguments: [sizeList[2]],
+  // },
+  // {
+  //   label: `Comparing different ways to create an array with ${sizeList[3]} items`,
+  //   count: iterationCountList,
+  //   functions: [
+  //     forLoopPush,
+  //     forLoopFill,
+  //     fillAndMap,
+  //     spreadAndMap,
+  //     spreadAndKeys,
+  //     arrayFromAndMap,
+  //     applyAndMap,
+  //   ],
+  //   arguments: [sizeList[3]],
+  // },
+  // {
+  //   label: `Comparing different ways to create an array with ${sizeList[4]} items`,
+  //   count: iterationCountList,
+  //   functions: [
+  //     forLoopPush,
+  //     forLoopFill,
+  //     fillAndMap,
+  //     spreadAndMap,
+  //     spreadAndKeys,
+  //     arrayFromAndMap,
+  //     applyAndMap,
+  //   ],
+  //   arguments: [sizeList[4]],
+  // },
 ])
