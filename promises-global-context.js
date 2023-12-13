@@ -4,12 +4,9 @@
 let SET_WAIT_TO_FULLFILLED = true
 let EXECUTION_COUNT = 0
 
-console.log('\nHello from global scope 1!\n')
-
 /**
  * @param {number} ms
  * @param {boolean} isFullfilled
- * @returns void
  */
 async function wait(ms, isFullfilled) {
   return new Promise((resolve, reject) => {
@@ -17,16 +14,16 @@ async function wait(ms, isFullfilled) {
       setTimeout(
         resolve(
           console.log(
-            `\`wait\` Promise fullfilled ${++EXECUTION_COUNT} time${
+            `\`wait()\`: Promise fullfilled ${++EXECUTION_COUNT} time${
               EXECUTION_COUNT > 1 ? 's' : ''
-            }!`,
+            } in ${(ms / 1000).toFixed(3)}s!`,
           ),
         ),
         ms,
       )
     } else {
       // if no error is thrown, the promise will return undefined!
-      setTimeout(reject(new Error('Promise rejected!')), ms)
+      setTimeout(reject(new Error('`wait()`: Promise rejected!')), ms)
     }
   })
 }
@@ -47,10 +44,10 @@ async function main(isFullfilled) {
 }
 
 // this will block the execution of the rest of the code
-// await main(SET_WAIT_TO_FULLFILLED)
+await main(SET_WAIT_TO_FULLFILLED)
 
 // not the same as this one below which will not block the execution of the rest of the code and fullfill the promise when the event loop is empty
-main(SET_WAIT_TO_FULLFILLED)
+// main(SET_WAIT_TO_FULLFILLED)
 
 console.log('\nHello from global scope 2!\n')
 
