@@ -37,9 +37,6 @@ globalThis.myGlobalArray = [1, 2, 3]
 // example of declaring a global symbol
 globalThis.myGlobalSymbol = Symbol('myGlobalSymbol')
 
-// q: example of declaring a global promise
-// a: not possible
-
 // example of declaring a global async function
 globalThis.myGlobalAsyncFunction = async () => {
   console.log('myGlobalAsyncFunction')
