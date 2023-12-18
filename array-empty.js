@@ -12,10 +12,10 @@ console.log('After Overwriting: ' + arrayA.length)
 clearUsingLength(arrayA)
 console.log('After Using Length: ' + arrayA.length)
 
-function clearUsingLength(ar) {
-  ar.length = 0
-}
-
 function clearByOverwriting(ar) {
   ar = []
+}
+
+function clearUsingLength(ar) {
+  ar.length = 0
 }
