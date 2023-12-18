@@ -31,7 +31,7 @@ async function wait(ms, isFullfilled) {
 /**
  * @param {boolean} isFullfilled
  */
-async function main(isFullfilled) {
+async function MAIN(isFullfilled) {
   try {
     console.log('In `main()`: BEFORE calling `wait()`')
     wait(1000, isFullfilled)
@@ -44,7 +44,7 @@ async function main(isFullfilled) {
 }
 
 // this will block the execution of the rest of the code
-await main(SET_WAIT_TO_FULLFILLED)
+await MAIN(SET_WAIT_TO_FULLFILLED)
 
 // not the same as this one below which will not block the execution of the rest of the code and fullfill the promise when the event loop is empty
 // main(SET_WAIT_TO_FULLFILLED)
