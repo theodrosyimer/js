@@ -11,5 +11,6 @@
   },
   "include": [
     "**/*.js",
+    "prettier.config.cjs",
   ]
 }
