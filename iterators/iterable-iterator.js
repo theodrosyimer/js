@@ -18,8 +18,8 @@ function createRangeIterator(from, to) {
   }
 }
 
-const it = createRangeIterator(1, 3)
+const iterator = createRangeIterator(1, 3)
 
-for (const i of it) {
-  console.log(i)
+for (const number of iterator) {
+  console.log(number)
 }
