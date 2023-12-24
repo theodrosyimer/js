@@ -1,0 +1,26 @@
+let n = 0
+// n = 1
+
+// n = ''
+// n = 'hello'
+
+// n = undefined
+// n = null
+// n = NaN
+// n = void 0
+
+// thruthy / falsy
+n ? 'truthy' : 'falsy' /*?. $*/
+n == true /*?. $*/
+n == false /*?. $*/ // this is true only for numbers and strings
+
+// boolean: we can cast to boolean first using `!` or `!!` and then compare
+!n === true /*?. $*/
+!n === false /*?. $*/
+!!n === true /*?. $*/
+!!n === false /*?. $*/
+
+// without casting to boolean first
+// this does not work
+n === true /*?. $*/
+n === false /*?. $*/
