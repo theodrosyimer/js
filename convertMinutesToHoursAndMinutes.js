@@ -13,7 +13,7 @@ function convertSecondsToHoursAndMinutes(duration) {
       : Math.trunc(duration / 3600)
   }h${
     Math.trunc((duration / 60) % 60) < 10
-      ? `${Math.trunc((duration / 60) % 60)}`
+      ? `0${Math.trunc((duration / 60) % 60)}`
       : Math.trunc((duration / 60) % 60)
   }m${duration % 60 < 10 ? `0${duration % 60}` : duration % 60}s`
 }
