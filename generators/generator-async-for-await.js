@@ -21,10 +21,10 @@ async function* fetchURLS(urls) {
 Consume the async generator without `for await`
 */
 // async function main(favoriteSites) {
-//   const it = fetchURLS(favoriteSites)
+//   const iterator = fetchURLS(favoriteSites)
 
 //   while (true) {
-//     const res = await it.next()
+//     const res = await iterator.next()
 //     if (res.done) break
 //     const text = res.value
 
