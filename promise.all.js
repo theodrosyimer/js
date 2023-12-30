@@ -13,7 +13,7 @@ async function waitFor(ms, { logger = false, name } = {}) {
           ? console.log(
               `${name ? `\`${name}()\`: ` : ''}Promise ${
                 EXECUTION_COUNT != null ? `${++EXECUTION_COUNT} ` : ''
-              }executed in ${(ms / 1000).toFixed(3)}s`,
+              }fulfilled in ${(ms / 1000).toFixed(3)}s`,
             )
           : undefined,
       ),
