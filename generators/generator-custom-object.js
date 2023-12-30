@@ -4,7 +4,9 @@ const obj = {
   b: 2,
   c: 3,
   *[Symbol.iterator]() {
-    for (const key of Object.keys(this)) yield this[key]
+    for (const key of Object.keys(this)) {
+      yield this[key]
+    }
   },
 }
 
@@ -32,7 +34,9 @@ const obj2 = {
   b: 2,
   c: 3,
   *[Symbol.iterator]() {
-    for (const key of Object.keys(this)) yield this[key]
+    for (const key of Object.keys(this)) {
+      yield this[key]
+    }
   },
 }
 
