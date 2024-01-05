@@ -62,5 +62,39 @@ const [err, data] = await tryCatchAsync(outer)
     }
 ```
 
-But only do that if you really need to do X when an error occurs. Most of the time, just leave the `try`/`catch` off entirely.
+But only do that if you really need to do X when an error occurs (like recovering state, closing resources...). Most of the time, just leave the `try`/`catch` off entirely.
 */
+
+/**
+ * Another example that better illustrates the point of when i SHOULD use `try`...`catch` block from [Best practices for error catching and handling - Programming Duck](https://programmingduck.com/articles/error-catching-handling#restore-state-and-resources:~:text=an%20error%20occurs.-,Here%E2%80%99s%20a%20code%20example%3A,-let%20isBusy%20%3D):
+**/
+
+let isBusy = false;
+
+async function handleUserEvent(event) {
+  if (!isBusy) {
+    isBusy = true;
+    try {
+      // do something asynchronous which may throw an exception, for example:
+      await doSomething()
+    } finally {
+      isBusy = false; // fix the state
+      // exception is sent higher up because there's no catch block
+    }
+  }
+}
+
+// equivalent example
+async function handleUserEvent(event) {
+  if (!isBusy) {
+    isBusy = true;
+    try {
+      // do something asynchronous which may throw an exception, for example:
+      await doSomething()
+    } catch (error) {
+      isBusy = false; // fix the state
+      throw error; // <== Not `throw new Error(e)
+    }
+    isBusy = false;
+  }
+}
