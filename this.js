@@ -33,6 +33,6 @@ console.log(marie)
 
 console.log('------------------------------------------------------------')
 
-// `this`will always be refering to the execution context of the function, except for 2 cases:
+// `this` will always be refering to the execution context of the function, except for 2 cases:
 // 1. arrow functions
 // 2. `bind()` method
