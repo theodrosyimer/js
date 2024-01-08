@@ -1,6 +1,9 @@
-import { promisify } from 'util'
+import { scheduler } from 'timers/promises'
 
-const sleep = promisify(setTimeout)
+// const sleep = scheduler.wait.bind(scheduler)
+
+// or use it with an arrow function
+const sleep = (ms) => scheduler.wait(ms)
 
 const promise = new Promise((resolve, reject) => {
   // from global context so BEFORE the event loop started (synchronous)
