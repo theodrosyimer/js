@@ -15,7 +15,6 @@ console.log(typeof alpha.toString)
 
 // `__proto__` is an object
 console.log(typeof alpha.__proto__)
-console.log(typeof alpha.__proto__)
 
 // `__proto__` is an object that has a `toString` method
 console.log(typeof alpha.__proto__.toString)
