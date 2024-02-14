@@ -24,3 +24,21 @@ n == false /*?. $*/ // this is true only for numbers and strings
 // this does not work
 n === true /*?. $*/
 n === false /*?. $*/
+
+let a = "0";
+let b = [];
+let c = {};
+
+let d = "";
+let e = 0;
+let f = null;
+let g;
+
+!!a;   // true
+!!b;   // true
+!!c;   // true
+
+!!d;   // false
+!!e;   // false
+!!f;   // false
+!!g;   // false
