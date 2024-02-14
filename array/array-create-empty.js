@@ -76,7 +76,7 @@ function applyAndMap(size) {
 
 *************************************************************************** */
 
-import { bench } from '../js-sandbox/performance-optimizations/time-it.js'
+import { bench } from '../../js-sandbox/performance-optimizations/time-it.js'
 
 const iterationCountList = [10 /* , 100, 1000 */]
 const sizeList = [10, 100, 1000, 10_000, 100_000]
