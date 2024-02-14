@@ -17,6 +17,3 @@ dog instanceof Object // ?
 if (!(mycar instanceof Car)) {
   // Do something, like mycar = new Car(mycar)
 }
-
-// This is really different from
-// if (!mycar instanceof Car)

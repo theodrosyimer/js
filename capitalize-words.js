@@ -12,7 +12,7 @@ function capitalize(str) {
 console.log(capitalize('hello world!'))
 
 function capitalize2(str) {
-  return str.replace(/^(.)|\s+(.)/g, letter => letter.toUpperCase())
+  return str.slice().replace(/^(.)|\s+(.)/g, letter => letter.toUpperCase())
 }
 
 console.log(capitalize2('hello world!'))
@@ -21,6 +21,6 @@ function capitalize3(str) {
   const [first, ...rest] = str
   return `${first.toUpperCase()}${rest}`
 }
-console.log(timeIt(capitalize, 'hello world'))
-console.log(timeIt(capitalize2, 'hello world'))
-console.log(timeIt(capitalize3, 'hello world'))
+console.log(timeIt(capitalize2, 'hello world')) // faster
+console.log(timeIt(capitalize, 'hello world')) // a little bit slower, sometimes...
+console.log(timeIt(capitalize3, 'hello world')) // slower
