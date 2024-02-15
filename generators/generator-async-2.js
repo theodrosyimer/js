@@ -4,7 +4,10 @@
 import { fileURLToPath } from 'url'
 
 /* eslint-disable no-promise-executor-return */
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+function delay(ms) {
+  return new Promise(resolve => {
+  setTimeout(resolve, ms)
+})}
 
 async function* interval(ms) {
   while (true) {
