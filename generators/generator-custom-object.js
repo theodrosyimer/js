@@ -23,7 +23,7 @@ const arr2 = Object.keys(obj) // ?
 const arr3 = Object.values(obj) // ?
 
 // Function that makes an object iterable
-function* makeGenerator(iterable) {
+function* makeGeneratorFromIterable(iterable) {
   for (const element of iterable) {
     yield element
   }
@@ -40,8 +40,8 @@ const obj2 = {
   },
 }
 
-const obj2Iterator = makeGenerator(obj2) // ?
+const iterator = makeGeneratorFromIterable(obj2) // ?
 
-obj2Iterator.next() // ?
+iterator.next() // ?
 
 export {}
