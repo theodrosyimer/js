@@ -22,7 +22,7 @@ An `Iterator` is an object that provides a `next()` method which returns the nex
 >
 > * `**for ... of**` (loop)
 > * `**...**` (spread operator)
-> * `const **[a, b, ..]** = iterable;` (destructuring assignment)
+> * `const **[a, b, ...rest]** = iterable;` (destructuring assignment)
 > * `**yield***` (generator delegation)
 >
 > There’s a number of already built-in iterables in JavaScript:
@@ -34,7 +34,10 @@ An `Iterator` is an object that provides a `next()` method which returns the nex
 > source: [JavaScript Lazy Evaluation: Iterables & Iterators | by MelkorNemesis | JavaScript in Plain English](https://javascript.plainenglish.io/javascript-lazy-evaluation-iterables-iterators-e0770a5de96f)
 */
 
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+function delay(ms) {
+  return new Promise(resolve => {
+  setTimeout(resolve, ms)
+})}
 
 // make fake data to play with Iterator
 const store = () => {
