@@ -40,7 +40,7 @@ function map(fn, iterable) {
   }
 }
 
-function filter(fn, iterable) {
+function filter(predicate, iterable) {
   const iter = iterable[Symbol.iterator]()
 
   return {
@@ -50,7 +50,7 @@ function filter(fn, iterable) {
     next() {
       const n = iter.next()
       if (!n.done) {
-        if (fn(n.value)) {
+        if (predicate(n.value)) {
           return { value: n.value, done: false }
         } else {
           return this.next()
