@@ -1,6 +1,8 @@
 const wordsArr = ['the', 'dog', 'a', 'bonne']
 const lettersStr = 'ae'
 
+filterWords(wordsArr, lettersStr)
+
 function filterWords(words, letters) {
   const res = []
   let iterationCount = 0
@@ -18,4 +20,3 @@ function filterWords(words, letters) {
   return res
 }
 
-filterWords(wordsArr, lettersStr)
