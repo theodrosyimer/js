@@ -3,9 +3,7 @@ import { timeIt } from './time-it.js'
 function capitalize(str) {
   return str
     .split(' ')
-    .map(function (word) {
-      return word[0].toUpperCase() + word.slice(1)
-    })
+    .map(word => word[0].toUpperCase() + word.slice(1))
     .join(' ')
 }
 
@@ -21,6 +19,7 @@ function capitalize3(str) {
   const [first, ...rest] = str
   return `${first.toUpperCase()}${rest}`
 }
+
 console.log(timeIt(capitalize2, 'hello world')) // faster
 console.log(timeIt(capitalize, 'hello world')) // a little bit slower, sometimes...
 console.log(timeIt(capitalize3, 'hello world')) // slower
