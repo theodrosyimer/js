@@ -5,7 +5,7 @@ module.exports = {
   semi: false,
   singleQuote: true,
   trailingComma: 'all',
-  // bracketSpacing: true,
+  // bracketSpacing: false,
   // htmlWhitespaceSensitivity: 'css',
   // insertPragma: false,
   // singleAttributePerLine: false,
