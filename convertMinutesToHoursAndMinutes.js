@@ -1,11 +1,11 @@
 import { tryCatchSync, tryCatchSync2 } from './try-catch/try-catch.js'
 
-let d = 179
-function convertMinutesToHoursAndMinutes(n) {
-  return `${
-    Math.trunc(n / 60) < 10 ? `0${Math.trunc(n / 60)}` : Math.trunc(n / 60)
-  }h${n % 60 < 10 ? `0${n % 60}` : n % 60}`
-}
+const d = 179
+// function convertMinutesToHoursAndMinutes(n) {
+//   return `${
+//     Math.trunc(n / 60) < 10 ? `0${Math.trunc(n / 60)}` : Math.trunc(n / 60)
+//   }h${n % 60 < 10 ? `0${n % 60}` : n % 60}`
+// }
 
 function convertSecondsToHoursAndMinutes(duration) {
   return `${
@@ -69,7 +69,7 @@ function convertMinutesToHoursAndMinutes2(minutes) {
     return getRemainder(n)
   }
 
-    /**
+  /**
    * @param {number} n
    * @param {{ (n: number): number }} cb
    */
