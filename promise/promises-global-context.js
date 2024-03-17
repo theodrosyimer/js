@@ -1,7 +1,7 @@
 // import fs from 'fs/promises'
 // import path from 'path'
 
-let SET_WAIT_TO_FULLFILLED = true
+const SET_WAIT_TO_FULLFILLED = true
 let EXECUTION_COUNT = 0
 
 /**
@@ -68,7 +68,7 @@ console.log('\nHello from global scope 3!\n')
 // wait(1000, SET_WAIT_TO_FULLFILLED)
 // console.log('In global scope: AFTER calling `wait()`')
 
-const myPromiseAsFunctionReturn = s =>
+const myPromiseAsFn = s =>
   new Promise((resolve, reject) => {
     if (typeof s !== 'number') {
       reject(new Error('A number is required!'))
@@ -78,7 +78,7 @@ const myPromiseAsFunctionReturn = s =>
     }, s * 1000)
   })
 
-// const result = await myPromiseAsFunctionReturn('1').catch(err => {
+// const result = await myPromiseAsFn('1').catch(err => {
 //   console.log(err.message)
 // })
 
