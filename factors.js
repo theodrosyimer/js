@@ -16,7 +16,8 @@ Note that you can go just until Math.floor(number/2) for efficiency purposes if 
 As @gengns suggested in the comments a simpler way to generate the array would be to use the spread operator and the keys method:
 */
 
-const factors1 = number => [...Array(number + 1).keys()].filter(i => number % i === 0)
+const factors1 = number =>
+  [...Array(number + 1).keys()].filter(i => number % i === 0)
 
 factors1(36) // ?
 
@@ -32,13 +33,13 @@ const factors1Refactored = number =>
 
 factors1Refactored(36) // ?
 
-//////////////////////////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////////////////////////
 
 // Using a for loop (imperative style)
 function factorsL(n) {
-  let result = []
-  for(let index = 1; index <= n; index++) {
-    if(n % index === 0) {
+  const result = []
+  for (let index = 1; index <= n; index++) {
+    if (n % index === 0) {
       result.push(index)
     }
   }
