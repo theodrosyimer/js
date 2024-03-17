@@ -1,3 +1,11 @@
+const animals = [
+  { name: 'Fluffykins', species: 'rabbit', legs: 4, mammal: true },
+  { name: 'Caro', species: 'dog', legs: 4, mammal: true },
+  { name: 'Harold', species: 'fish', legs: 0, mammal: false },
+  { name: 'Ursula', species: 'cat', legs: 4, mammal: true },
+  { name: 'Jimmy', species: 'fish', legs: 0, mammal: false },
+]
+
 const array = [0, 1, 2, null, 4, undefined, 5, false, '', true]
 
 // use it like this:
@@ -6,6 +14,10 @@ filter(array, value => value && typeof value !== 'boolean')
 // or:
 function filterNullAndUndefined(arr) {
   return filter(arr, value => value !== null && value !== undefined)
+}
+
+function filterByLegsCount(arr, count) {
+  return filter(arr, animal => animal.legs === count)
 }
 
 function filter(arr, predicateFn) {
@@ -23,15 +35,6 @@ function filter(arr, predicateFn) {
 // /////////////////////////////////////////////////////////
 
 // Functional programming style
-
-const animals = [
-  { name: 'Fluffykins', species: 'rabbit', legs: 4, mammal: true },
-  { name: 'Caro', species: 'dog', legs: 4, mammal: true },
-  { name: 'Harold', species: 'fish', legs: 0, mammal: false },
-  { name: 'Ursula', species: 'cat', legs: 4, mammal: true },
-  { name: 'Jimmy', species: 'fish', legs: 0, mammal: false },
-]
-
 const isMammal = animal => animal.mammal
 
 const filterAnimals = createFilter(animals)
