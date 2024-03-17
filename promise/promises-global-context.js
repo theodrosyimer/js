@@ -51,13 +51,14 @@ await MAIN(SET_WAIT_TO_FULLFILLED)
 
 console.log('\nHello from global scope 2!\n')
 
-const promise1 = new Promise(async (resolve, reject) => {
+const promise1 = new Promise((resolve, reject) => {
   console.log('In `promise1()`: BEFORE calling `wait()`')
-  await wait(1000, SET_WAIT_TO_FULLFILLED)
-  // not the same as this one below which will not block the execution of the rest of the code and fullfill the promise when the event loop is empty
-  // wait(1000, SET_WAIT_TO_FULLFILLED)
+  wait(1000, SET_WAIT_TO_FULLFILLED).then(() => {
+    // not the same as this one below which will not block the execution of the rest of the code and fullfill the promise when the event loop is empty
+    // wait(1000, SET_WAIT_TO_FULLFILLED)
 
-  console.log('In `promise1()`: AFTER calling `wait()`')
+    console.log('In `promise1()`: AFTER calling `wait()`')
+  })
 })
 
 promise1.then(res => res).catch(err => err)
