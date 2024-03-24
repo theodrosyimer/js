@@ -5,13 +5,13 @@ inspect.styles.string = 'red'
 
 console.log(
   formatWithOptions(
-    { colors: true,  },
+    { colors: true },
     '%o',
-    'INFO: Run the command below to install all PeerDependencies'
-  )
+    'INFO: Run the command below to install all PeerDependencies',
+  ),
 )
 
 inspect.styles.string = 'cyan'
-inspect // ?
+console.log(inspect) // ?
 
 console.log(formatWithOptions({ colors: true }, '%o', 'npm run peerdeps'))
