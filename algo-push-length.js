@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 function myLength(string) {
   let i = 0
   while (string[i] !== undefined) {
@@ -45,7 +46,7 @@ myPush(array2, 'world') // ?
 
 console.log()
 console.log(
-  'myLength v2: increment counter no matter the value of the element on the current iteration'
+  'myLength v2: increment counter no matter the value of the element on the current iteration',
 )
 console.log()
 
