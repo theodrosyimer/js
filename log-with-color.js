@@ -15,3 +15,5 @@ inspect.styles.string = 'cyan'
 console.log(inspect) // ?
 
 console.log(formatWithOptions({ colors: true }, '%o', 'npm run peerdeps'))
+
+console.log('%c This is a test', 'background: #222; color: #bada55')
