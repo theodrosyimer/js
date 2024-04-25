@@ -1,5 +1,6 @@
 /*
 code: https://replit.com/@MelkorNemesis/closing-iterator
+
 source: [JavaScript Lazy Evaluation: Iterables & Iterators | by MelkorNemesis | JavaScript in Plain English](https://javascript.plainenglish.io/javascript-lazy-evaluation-iterables-iterators-e0770a5de96f)
 
 > ## Closing iterator
@@ -40,10 +41,9 @@ function createCloseableIterator() {
     next() {
       if (idx <= data.length - 1) {
         return { value: data[idx++], done: false }
-      } else {
-        cleanup()
-        return { done: true }
       }
+      cleanup()
+      return { done: true }
     },
     return() {
       cleanup()
