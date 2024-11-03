@@ -11,7 +11,6 @@ for (const [key, value] of params) {
 /* ************************************************ */
 /* ************************************************ */
 
-
 /**
  * Function that returns URLSearchParams from an `URL` instance or a `string` that is converted to an `URL` instance
  *
@@ -29,7 +28,9 @@ for (const [key, value] of params) {
  */
 function useUrl(url) {
   if (!(typeof url === 'string' || url instanceof URL)) {
-    throw new Error(`Expected a string or a URL object, received ${JSON.stringify(url)}`)
+    throw new Error(
+      `Expected a string or a URL object, received ${JSON.stringify(url)}`,
+    )
   }
 
   if (url instanceof URL) {
@@ -41,12 +42,13 @@ function useUrl(url) {
 }
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
-const [myUrl, myUrlParams] = useUrl(new URL(/* 'world',  */'https://google.com/search/test?test=hello'))
+const [myUrl, myUrlParams] = useUrl(
+  new URL(/* 'world',  */ 'https://google.com/search/test?test=hello'),
+)
 
 // if reassignment is needed, use `let` instead of `const`
 // // eslint-disable-next-line react-hooks/rules-of-hooks
 // let [myUrl, myUrlParams] = useUrl(new URL(/* 'world',  */'https://google.com/search/test?test=hello'))
-
 
 const userId = 1
 myUrlParams.set('q', `${userId} is:issue repo:facebook/react-native`)
@@ -93,7 +95,7 @@ console.log(url.searchParams)
 /* ************************************************ */
 
 const urlObjectFromTemplateString = new URLSearchParams(
-  `q=${userId} is:issue repo:facebook/react-native`
+  `q=${userId} is:issue repo:facebook/react-native`,
 )
 urlObjectFromTemplateString.get('q')
 
@@ -105,9 +107,10 @@ queryStringEncoded
 
 // can be passed as literal, like a Map, but with only string keys and values
 // could come from an object converted with `Object.entries(object)` to an array of tuples
-const urlObjectFromStringTuples = new URLSearchParams(
-  [['string', 'array'], ['of', 'strings']]
-)
+const urlObjectFromStringTuples = new URLSearchParams([
+  ['string', 'array'],
+  ['of', 'strings'],
+])
 urlObjectFromStringTuples.get('string')
 
 const queryStringEncoded3 = urlObjectFromStringTuples.toString()
