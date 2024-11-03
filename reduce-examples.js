@@ -38,13 +38,12 @@ console.log(array1.reduce(reducer))
 console.log(array1.reduce(reducer, 5))
 // expected output: 15
 
-
 /*
 ### Sum all the values of an array
 */
 const total = [0, 1, 2, 3].reduce(
   (accumulator, currentValue) => accumulator + currentValue,
-  0
+  0,
 )
 
 console.log(total)
@@ -56,7 +55,7 @@ To sum up the values contained in an array of objects, you **must** supply an `i
 const initialValue = 0
 const sum = [{ x: 1 }, { x: 2 }, { x: 3 }].reduce(
   (accumulator, currentValue) => accumulator + currentValue.x,
-  initialValue
+  initialValue,
 )
 
 console.log(sum)
@@ -126,7 +125,7 @@ const friends = [
 // additional list contained in initialValue
 const allbooks = friends.reduce(
   (accumulator, currentValue) => [...accumulator, ...currentValue.books],
-  ['Alphabet']
+  ['Alphabet'],
 ) /*?. $*/
 console.log(allbooks)
 
@@ -135,7 +134,7 @@ const allbooks2 = friends.reduce(
     accumulator.push(...currentValue.books)
     return accumulator
   },
-  ['Alphabet']
+  ['Alphabet'],
 ) /*?. $*/
 console.log(allbooks2)
 
@@ -153,7 +152,7 @@ Running Promises in Sequence
 function runPromiseInSequence(arr, input) {
   return arr.reduce(
     (promiseChain, currentFunction) => promiseChain.then(currentFunction),
-    Promise.resolve(input)
+    Promise.resolve(input),
   )
 }
 
